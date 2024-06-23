@@ -1,0 +1,48 @@
+<?php
+		  $conn=mysqli_connect("localhost:3308","root","","computer");
+		  if($conn->connect_error)
+		  {
+			  die("Not connected".$con->connect_error);
+		  }
+		  else{
+	  $result=mysqli_query($conn,"select * from firstyear;");
+		  
+		  while($row=mysqli_fetch_assoc($result))
+		  {
+			  require('fpdf.php');
+				$pdf=new FPDF();
+				$pdf->AddPage();
+				$pdf->SetFont('Arial','B',10);
+				$pdf->Cell(80,10,"YEAR",0,0,'L');
+				$pdf->Cell(40,10,$row['Year'],0,1,'C');
+				$pdf->Cell(80,10,"NAME",0,0,'L');
+				$pdf->Cell(40,10,$row['Name'],0,1,'C');
+				$pdf->Cell(80,10,"EMAIL",0,0,'L');
+				$pdf->Cell(40,10,$row['Email'],0,1,'C');
+				$pdf->Cell(80,10,"PCI(1)",0,0,'L');
+				$pdf->Cell(40,10,$row['a1'],0,1,'C');
+				$pdf->Cell(80,10,"PCI(2)",0,0,'L');
+				$pdf->Cell(40,10,$row['a2'],0,1,'C');
+				$pdf->Cell(80,10,"PCI(3)",0,0,'L');
+				$pdf->Cell(40,10,$row['a3'],0,1,'C');
+				$pdf->Cell(80,10,"PCI(4)",0,0,'L');
+				$pdf->Cell(40,10,$row['a4'],0,1,'C');
+				$pdf->Cell(80,10,"PCI(5)",0,0,'L');
+				$pdf->Cell(40,10,$row['a5'],0,1,'C');
+				$pdf->Cell(80,10,"PCI(6)",0,0,'L');
+				$pdf->Cell(40,10,$row['a6'],0,1,'C');
+				$pdf->Cell(80,10,"PCI(7)",0,0,'L');
+				$pdf->Cell(40,10,$row['a7'],0,1,'C');
+				$pdf->Cell(80,10,"PCI(8)",0,0,'L');
+				$pdf->Cell(40,10,$row['a8'],0,1,'C');
+				$pdf->Cell(80,10,"PCI(9)",0,0,'L');
+				$pdf->Cell(40,10,$row['a9'],0,1,'C');
+				
+				$pdf->Output();
+		  }
+		  }
+	    
+	  
+	  
+	  mysqli_close($conn);
+?>

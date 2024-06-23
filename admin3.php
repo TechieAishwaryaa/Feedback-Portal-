@@ -1,0 +1,15 @@
+<?php
+  $y=$_REQUEST['year'];
+  if($y=="FY")
+   {
+		  include("fypage.php");
+   }
+   if($y=="SY")
+   {
+		  include("sypage.php");
+   }
+   if($y=="TY")
+   {
+		  include("typage.php");
+   }
+?>

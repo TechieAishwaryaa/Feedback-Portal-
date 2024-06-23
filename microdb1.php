@@ -1,0 +1,15 @@
+<?php
+   $year=$_GET['year'];
+   if($year=="FY")
+   {
+		  include("fyform.php");
+   }
+   if($year=="SY")
+   {
+		  include("syform.php");
+   }
+   if($year=="TY")
+   {
+		  include("tyshow1.php");
+   }
+?>
